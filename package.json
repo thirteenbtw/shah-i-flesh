@@ -1,0 +1,49 @@
+{
+  "name": "shah-i-flesh",
+  "version": "0.1.0",
+  "description": "Шахматы, где каждое взятие решается битвой: покер, кубики и дуэль-шутер с падающими блоками",
+  "author": "thirteenbtw",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "serve": "node serve.js",
+    "dist": "electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.thirteenbtw.shahiflesh",
+    "productName": "Shah i Flesh",
+    "files": [
+      "index.html",
+      "js/**/*",
+      "electron/**/*",
+      "build/icon.png"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Шах и Флеш",
+      "uninstallDisplayName": "Шах и Флеш",
+      "artifactName": "ShahIFlesh-Setup-${version}.${ext}",
+      "installerLanguages": [
+        "ru_RU"
+      ],
+      "language": "1049"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0"
+  }
+}
